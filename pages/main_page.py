@@ -57,3 +57,6 @@ class MainPage(BasePage):
 
     def click_btn_footer_order(self):
         self.click_element(self.btn_footer_order)
+
+    def switch_to_new_window(self):
+        self.browser.switch_to.window(self.browser.window_handles[1])

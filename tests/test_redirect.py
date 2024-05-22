@@ -24,6 +24,6 @@ class TestRedirect:
         with allure.step("Клик на кнопку лого Яндекс"):
             mp.click_logo_link_to_yandex()
         with allure.step("Переход на новую вкладку"):
-            browser.switch_to.window(browser.window_handles[1])
+            mp.switch_to_new_window()
         with allure.step("Открылась страница яндекс Дзен"):
             mp.assert_url(urls.URL_DZEN)
