@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from base.base_page import BasePage
-from src import data
+from src import data, assertions
+
 
 
 class OrderPage(BasePage):
@@ -21,7 +22,7 @@ class OrderPage(BasePage):
     btn_next = By.XPATH, "//button[text()='Далее']"
     btn_make_order = By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"
     btn_accept_order = By.XPATH, "//button[text()='Да']"
-    assert_success_text = By.XPATH, "//div[@class='Order_ModalHeader__3FDaJ']"
+    success_order_text = By.XPATH, "//div[@class='Order_ModalHeader__3FDaJ']"
 
     def input_input_name(self, name):
         self.enter_element(self.input_name, name)
@@ -102,4 +103,4 @@ class OrderPage(BasePage):
         self.click_btn_accept_order()
 
     def assert_success_order(self):
-        self.is_element_present(self.assert_success_text)
+        self.assert_word(self.success_order_text, assertions.assert_success_order_text)
